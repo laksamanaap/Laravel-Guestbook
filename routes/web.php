@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\GuestBookController;
+use App\Models\GuestBook;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('index');
+});
+
+Route::get('/tes', function () {
     return view('welcome');
 });
+
+Route::post('/store', [GuestBookController::class, 'store']);
+Route::put('/update', [GuestBookController::class, 'update']);
+Route::delete('/delete', [GuestBookController::class, 'delete']);
